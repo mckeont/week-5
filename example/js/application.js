@@ -13,10 +13,12 @@ var getAndParseData = function() {
       return typeof datum.Coordinates !== 'number';
     });
     appState.data = _.map(numericCoords, function(datum) {
+      console.log(datum);
       var latlongStrings = datum.Coordinates.replace('(', '').replace(')', '').replace(',', '').split(' ');
       var latlong = _.map(latlongStrings, function(str) { return parseFloat(str); });
       datum.coords = latlong;
       return datum;
+      console.log(datum.coords);
     });
   });
 };

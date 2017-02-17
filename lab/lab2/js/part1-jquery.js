@@ -169,5 +169,64 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
-  // Do your stuff here
+  // Task 1
+      $("#text-label1").text('What type of street tree would you like?');
+      $("#text-label2").text('Latitude');
+      $("#text-label3").text('Longitude');
+      $("label#checkbox-label1").text('Do you have an empty sidewalk pit?');
+      $("label#checkbox-label2").text('Have you used this service before?');
+      $('#color-label').text("Dark Orange");
+      $('#color-input').val('#FF8C00');
+      $('#numeric-input').text(2);
+      //Task 2
+      $("#text-input1").val(" ");
+      $("#text-input2").val(" ");
+      $("#text-input3").val(" ");
+      $('#number-label').text('Number of desired trees');
+
+      //Task 3
+  var key = function() {
+    var streetKey = {
+      treeName: $('#text-input1').val(),
+      latitude: $("#text-input2").val(),
+      longitude: $("#text-input3").val(),
+      emptyPit: $("label#checkbox-label1").val(),
+      service: $("label#checkbox-label2").val(),
+      treeCount: $('#numeric-input').val(),
+      color: $('#color-input').val(),
+    };
+    console.log(streetKey);
+  };
+    console.log(key);
+    // Task 4
+    var test = $("#text-input1").val();
+        console.log(test);
+    $('#text-input2').prop('disabled',false);
+    var test2 = $("#text-input2").val();
+        console.log(test2);
+    $('#text-input1').prop('disabled',false);
+    $('#text-input3').prop('disabled',false);
+    $("#cbox-input1").prop( 'disabled', false );
+    $('#cbox-input2').prop('disabled',false);
+    $('#color-input').prop('disabled',false);
+    $('#numeric-input').prop('disabled', false);
+
+  // Task 5 and 6
+    $('button').click(function() {
+      $("text-label1").text('What type of street tree would you like?');
+        $("#text-input1").val(" ");
+      $("#text-label2").text('Latitude');
+        $("#text-input2").val(" ");
+      $("#text-label3").text('Longitude');
+        $("#text-input3").val(" ");
+      $('#color-label').text("Dark Orange");
+        $('#color-input').val('#FF8C00');
+      $('#number-label').text('Number of desired trees');
+        $('#numeric-input').text(2);
+
+      L.circleMarker(
+        [$("#text-input1").val(),$("#text-input2").val()],
+        {color:$("#color-input").val()}).marker.bindPopup("<b>Hello Tree Lovers!</b>").openPopup().addTo(map);
+      console.log("This worked");
+    });
 });
